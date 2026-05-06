@@ -539,15 +539,111 @@ textarea.form-control {
   }
 }
 
+/* Mobile Navigation */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: absolute;
+  right: 2rem;
+}
+
+.mobile-toggle .bar {
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.mobile-toggle.active .bar:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.mobile-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.active .bar:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .navbar-magic .navbar-inner {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .nav-logo-premium {
+    left: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    right: 1.2rem;
+    width: 25px;
+    height: 18px;
+  }
+
+  .mobile-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .mobile-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-pill {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(5, 5, 8, 0.98);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 1000;
+  }
+
+  .nav-pill.mobile-active {
+    right: 0;
+  }
+
+  .nav-links-magic {
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    gap: 2rem;
+    padding: 0;
+    align-items: center;
+  }
+
+  .nav-link-magic {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+
+  .hero {
+    padding-top: 80px;
+    min-height: auto;
   }
 
   .hero-content {
     flex-direction: column-reverse;
     text-align: center;
     align-items: center;
+    gap: 2rem;
   }
 
   .hero-text {
