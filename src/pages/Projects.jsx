@@ -18,11 +18,11 @@ const Projects = () => {
             <span className="tech-badge">Automation</span>
             <span className="tech-badge">IoT</span>
           </div>
-          <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
-            <a href="#" className="btn btn-outline" style={{ flex: 1, justifyContent: 'center' }}>
+          <div className="project-actions">
+            <a href="#" className="btn btn-outline">
               Live Demo <ExternalLink size={18} />
             </a>
-            <a href="#" className="btn btn-outline" style={{ flex: 1, justifyContent: 'center' }}>
+            <a href="#" className="btn btn-outline">
               Code <Github size={18} />
             </a>
           </div>
@@ -41,11 +41,11 @@ const Projects = () => {
             <span className="tech-badge">MongoDB</span>
             <span className="tech-badge">REST API</span>
           </div>
-          <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
-            <a href="#" className="btn btn-outline" style={{ flex: 1, justifyContent: 'center' }}>
+          <div className="project-actions">
+            <a href="#" className="btn btn-outline">
               Live Demo <ExternalLink size={18} />
             </a>
-            <a href="#" className="btn btn-outline" style={{ flex: 1, justifyContent: 'center' }}>
+            <a href="#" className="btn btn-outline">
               Code <Github size={18} />
             </a>
           </div>
@@ -62,11 +62,11 @@ const Projects = () => {
             <span className="tech-badge">TMDB API</span>
             <span className="tech-badge">Firebase</span>
           </div>
-          <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
-            <a href="#" className="btn btn-outline" style={{ flex: 1, justifyContent: 'center' }}>
+          <div className="project-actions">
+            <a href="#" className="btn btn-outline">
               Live Demo <ExternalLink size={18} />
             </a>
-            <a href="#" className="btn btn-outline" style={{ flex: 1, justifyContent: 'center' }}>
+            <a href="#" className="btn btn-outline">
               Code <Github size={18} />
             </a>
           </div>
