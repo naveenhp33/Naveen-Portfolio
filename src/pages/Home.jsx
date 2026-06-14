@@ -71,10 +71,7 @@ const Home = () => (
                 />
               </div>
             </div>
-            <div className="hero-avail-badge" aria-label="Currently available for work">
-              <span className="avail-dot" aria-hidden="true" />
-              Available for hire
-            </div>
+
           </div>
 
         </div>
