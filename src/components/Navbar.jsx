@@ -1,104 +1,96 @@
 import React, { useState, useEffect } from 'react';
 
+const NAV_ITEMS = [
+  { id: 'home',     label: 'Home' },
+  { id: 'about',    label: 'About' },
+  { id: 'skills',   label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact',  label: 'Contact' },
+];
+
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab]   = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen]     = useState(false);
 
+  /* Lock body scroll when mobile menu is open */
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMenuOpen]);
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
+  /* Active section & scroll state via IntersectionObserver */
   useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-    const observerOptions = {
-      root: null,
-      rootMargin: '-30% 0px -60% 0px',
-      threshold: 0,
-    };
+    const opts = { root: null, rootMargin: '-30% 0px -60% 0px', threshold: 0 };
+    const cb   = (entries) => entries.forEach(e => e.isIntersecting && setActiveTab(e.target.id));
+    const obs  = new IntersectionObserver(cb, opts);
 
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveTab(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    sections.forEach((id) => {
+    NAV_ITEMS.forEach(({ id }) => {
       const el = document.getElementById(id);
-      if (el) observer.observe(el);
+      if (el) obs.observe(el);
     });
 
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => { obs.disconnect(); window.removeEventListener('scroll', onScroll); };
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <nav className={`navbar-magic ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
-      <div className="navbar-inner">
-        <a href="#home" className="nav-logo-premium" onClick={closeMenu}>
-          <span className="logo-dot"></span>
-          Naveen
-        </a>
-        
-        <button className={`mobile-toggle ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </button>
+    <>
+      <nav className={`navbar${isScrolled ? ' scrolled' : ''}`} aria-label="Primary navigation">
+        <div className="navbar-inner">
+          {/* Logo */}
+          <a href="#home" className="nav-logo" onClick={closeMenu} aria-label="Go to top">
+            <span className="nav-logo-dot" aria-hidden="true" />
+            Naveen
+          </a>
 
-        <div className={`nav-pill ${isMenuOpen ? 'mobile-active' : ''}`}>
-          <ul className="nav-links-magic">
-            <li>
-              <a href="#home" className={`nav-link-magic ${activeTab === 'home' || activeTab === '' ? 'active' : ''}`} onClick={closeMenu}>
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#about" className={`nav-link-magic ${activeTab === 'about' ? 'active' : ''}`} onClick={closeMenu}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#skills" className={`nav-link-magic ${activeTab === 'skills' ? 'active' : ''}`} onClick={closeMenu}>
-                Skills
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className={`nav-link-magic ${activeTab === 'projects' ? 'active' : ''}`} onClick={closeMenu}>
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className={`nav-link-magic ${activeTab === 'contact' ? 'active' : ''}`} onClick={closeMenu}>
-                Contact
-              </a>
-            </li>
+          {/* Desktop links */}
+          <ul className="nav-links" role="list">
+            {NAV_ITEMS.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className={`nav-link${activeTab === id ? ' active' : ''}`}
+                  aria-current={activeTab === id ? 'page' : undefined}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
+
+          {/* Mobile hamburger */}
+          <button
+            className={`mobile-toggle${menuOpen ? ' open' : ''}`}
+            onClick={() => setMenuOpen(v => !v)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
+            <span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
+          </button>
         </div>
+      </nav>
+
+      {/* Mobile dropdown */}
+      <div className={`mobile-menu${menuOpen ? ' open' : ''}`} role="dialog" aria-modal="true" aria-label="Navigation menu">
+        {NAV_ITEMS.map(({ id, label }) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={`mobile-nav-link${activeTab === id ? ' active' : ''}`}
+            onClick={closeMenu}
+          >
+            {label}
+          </a>
+        ))}
       </div>
-    </nav>
+    </>
   );
 };
 

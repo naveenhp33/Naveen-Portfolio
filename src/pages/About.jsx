@@ -1,64 +1,93 @@
 import React from 'react';
-import { BookOpen, Award, GraduationCap } from 'lucide-react';
+import { GraduationCap, Award } from 'lucide-react';
 
-const About = () => {
-  return (
-    <section id="about" className="section animate-fade">
-      <h2 className="section-title">About Me</h2>
-      
-      <div className="card about-header-card">
-        <h3 className="about-title-large">
-          Passionate <span className="text-gradient">Fullstack Web Developer</span>
-        </h3>
-        <p className="card-desc">
-          Results-driven full stack developer with hands-on experience building responsive web pages using HTML, CSS, and Python, and actively exploring AI agents for smarter applications and using Vibe Coding tools to quickly prototype and ship clean, user-focused interfaces. 
-        </p>
-        <p className="card-desc" style={{ marginTop: '1rem' }}>
-          Eager to learn new technologies, collaborate with cross-functional teams, and contribute to impactful solutions that help the organization grow.
+const About = () => (
+  <section id="about" className="section section-alt">
+    <div className="container">
+      {/* Section header */}
+      <div className="section-header">
+        <span className="section-tag">About Me</span>
+        <h2 className="section-title">Passionate About Crafting the Web</h2>
+        <p className="section-subtitle">
+          A quick overview of my background, education, and what drives me to build.
         </p>
       </div>
 
-      <div className="grid">
+      <div className="about-layout">
+
+        {/* Intro bio — full width */}
+        <div className="about-intro-card">
+          <p>
+            Results-driven full-stack developer with hands-on experience building responsive web
+            applications using HTML, CSS, JavaScript, React, and Python. I actively explore AI
+            agents for smarter products and use modern vibe-coding tools to quickly prototype and
+            ship clean, user-focused interfaces.
+          </p>
+          <p>
+            Eager to learn new technologies, collaborate with cross-functional teams, and
+            contribute to impactful solutions that help organisations grow. Currently pursuing a
+            B.Tech at Dhanalakshmi Srinivasan University (2023–2027).
+          </p>
+        </div>
+
+        {/* Education card */}
         <div className="card">
-          <GraduationCap className="card-icon" />
-          <h3 className="card-title">Education</h3>
-          
-          <div className="info-block">
-            <h4 className="info-title">BACHELOR OF TECHNOLOGY</h4>
-            <p className="info-subtitle">Dhanalakshmi Srinivasan University</p>
-            <p className="info-detail">Trichy, India | 2023 - 2027</p>
+          <div className="about-card-head">
+            <div className="about-card-icon" aria-hidden="true">
+              <GraduationCap size={20} />
+            </div>
+            <h3 className="about-card-icon-title">Education</h3>
           </div>
 
-          <div className="info-block">
-            <h4 className="info-title">SECONDARY SCHOOL</h4>
-            <p className="info-subtitle">Mount Giris High School</p>
-            <p className="info-detail">Kulithalai Karur | 2023</p>
+          <div className="info-entry">
+            <p className="info-entry-title">Bachelor of Technology</p>
+            <p className="info-entry-sub">Dhanalakshmi Srinivasan University</p>
+            <p className="info-entry-detail">Trichy, India · 2023 – 2027</p>
+          </div>
+
+          <div className="info-entry">
+            <p className="info-entry-title">Secondary School</p>
+            <p className="info-entry-sub">Mount Giris High School</p>
+            <p className="info-entry-detail">Kulithalai, Karur · 2023</p>
           </div>
         </div>
 
+        {/* Achievements card */}
         <div className="card">
-          <Award className="card-icon" />
-          <h3 className="card-title">Achievements & Activities</h3>
-          
-          <div className="info-block">
-            <h4 className="info-title">Cloud computing - NPTEL</h4>
-            <p className="info-detail" style={{ marginBottom: '0.5rem' }}>Jul-Oct 2025</p>
-            <p className="card-desc" style={{ fontSize: '0.95rem' }}>Successfully completed a 12-week NPTEL course on Cloud Computing, covering cloud architecture, virtualization, and service models.</p>
+          <div className="about-card-head">
+            <div className="about-card-icon" aria-hidden="true">
+              <Award size={20} />
+            </div>
+            <h3 className="about-card-icon-title">Certifications &amp; Achievements</h3>
           </div>
 
-          <div className="info-block">
-            <h4 className="info-title">MongoDB Basics for students</h4>
-            <p className="card-desc" style={{ fontSize: '0.95rem' }}>Earned a MongoDB certification demonstrating proficiency in NoSQL database concepts, document-based data models, and CRUD operations.</p>
+          <div className="info-entry">
+            <p className="info-entry-title">Cloud Computing – NPTEL</p>
+            <p className="info-entry-detail" style={{ marginBottom: '0.3rem' }}>Jul – Oct 2025</p>
+            <p className="info-entry-sub" style={{ fontSize: '0.82rem' }}>
+              12-week course covering cloud architecture, virtualisation, and service models.
+            </p>
           </div>
 
-          <div className="info-block">
-            <h4 className="info-title">Frontend Development Training - React.js (GUVI)</h4>
-            <p className="card-desc" style={{ fontSize: '0.95rem' }}>Certified in React.js from GUVI (HCL Initiative & Google for Education Partner), with hands-on training in building modern, component-based web applications.</p>
+          <div className="info-entry">
+            <p className="info-entry-title">MongoDB Basics for Students</p>
+            <p className="info-entry-sub" style={{ fontSize: '0.82rem' }}>
+              Proficiency in NoSQL concepts, document-based data models, and CRUD operations.
+            </p>
+          </div>
+
+          <div className="info-entry">
+            <p className="info-entry-title">Frontend Dev – React.js (GUVI)</p>
+            <p className="info-entry-sub" style={{ fontSize: '0.82rem' }}>
+              Certified by GUVI (HCL Initiative &amp; Google for Education Partner) in
+              component-based React development.
+            </p>
           </div>
         </div>
+
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;
