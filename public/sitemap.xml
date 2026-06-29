@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://naveenkumars.com/</loc>
+    <loc>https://naveenkumars.me/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://naveenkumars.com/profile.jpeg</image:loc>
+      <image:loc>https://naveenkumars.me/profile.jpeg</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://naveenkumars.com/#projects</loc>
+    <loc>https://naveenkumars.me/#projects</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://naveenkumars.com/#skills</loc>
+    <loc>https://naveenkumars.me/#skills</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://naveenkumars.com/#about</loc>
+    <loc>https://naveenkumars.me/#about</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://naveenkumars.com/#contact</loc>
+    <loc>https://naveenkumars.me/#contact</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
