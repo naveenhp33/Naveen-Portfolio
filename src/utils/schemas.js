@@ -60,9 +60,19 @@ export const generateProjectSchema = (project) => {
 /**
  * Insert JSON-LD schema into page
  */
-export const insertSchemaTag = (schema) => {
+export const insertSchemaTag = (schema, id) => {
+  if (id) {
+    const existing = document.getElementById(id);
+    if (existing) {
+      existing.remove();
+    }
+  }
+
   const script = document.createElement('script');
   script.type = 'application/ld+json';
+  if (id) {
+    script.id = id;
+  }
   script.textContent = JSON.stringify(schema);
   document.head.appendChild(script);
 };

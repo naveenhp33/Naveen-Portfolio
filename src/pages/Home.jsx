@@ -4,6 +4,7 @@ import About    from './About';
 import Skills   from './Skills';
 import Projects from './Projects';
 import Contact  from './Contact';
+import FAQ      from './FAQ';
 
 const Home = () => (
   <>
@@ -86,6 +87,8 @@ const Home = () => (
     <Projects />
     <div className="divider" />
     <Contact />
+    <div className="divider" />
+    <FAQ />
   </>
 );
 
