@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Sitemaps
+Sitemap: https://naveenkumars.me/sitemap.xml
+
+# Crawl delay for bots
+Crawl-delay: 1
