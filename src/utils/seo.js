@@ -7,8 +7,8 @@ export const updateMetaTags = (options = {}) => {
   const defaults = {
     title: 'Naveen Kumar S | Fullstack Web Developer Portfolio',
     description: 'Naveen Kumar S - Fullstack Web Developer specializing in React, Node.js, MongoDB, and Python. Explore my portfolio of modern web applications.',
-    url: 'https://naveenkumars.me/',
-    image: 'https://naveenkumars.me/profile.jpeg'
+    url: 'https://www.naveenkumars.me/',
+    image: 'https://www.naveenkumars.me/profile.jpeg'
   };
 
   const config = { ...defaults, ...options };
